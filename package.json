@@ -14,7 +14,8 @@
     "test:ci": "npm run lint && npm run test:unit"
   },
   "dependencies": {
-    "@toast-ui/editor": "^3.2.2",
+    "@toast-ui/editor": "^3.1.0",
+    "@toast-ui/editor-plugin-color-syntax": "^3.1.0",
     "axios": "0.18.1",
     "core-js": "3.6.5",
     "element-ui": "2.13.2",

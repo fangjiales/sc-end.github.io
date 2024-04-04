@@ -1,12 +1,18 @@
 <template>
   <div>
-    <h1>article</h1>
-    <div ref="editor"></div>
+    <div id="editor"></div>
   </div>
 </template>
 
 <script>
+import '@toast-ui/editor/dist/toastui-editor.css'
+import 'tui-color-picker/dist/tui-color-picker.css'
+import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css'
+
 import Editor from '@toast-ui/editor'
+import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
+
+import '@toast-ui/editor/dist/i18n/zh-cn'
 
 export default {
   name: 'Article',
@@ -16,10 +22,12 @@ export default {
   methods: {},
   mounted() {
     const editor = new Editor({
-      el: this.$refs.editor,
-      height: '500px',
+      el: document.querySelector('#editor'),
+      height: '600px',
       initialEditType: 'markdown',
-      previewStyle: 'vertical'
+      previewStyle: 'vertical',
+      language: 'zh-CN',
+      plugins: [colorSyntax]
     })
     editor.getMarkdown()
   }
