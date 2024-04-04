@@ -57,7 +57,7 @@
         </el-table-column>
         <el-table-column prop="status" label="状态" width="100" align="center">
           <template slot-scope="scope">
-            <el-switch v-model="!!+scope.row.status"></el-switch>
+            <el-switch :value="!!scope.row.status" @change="updateStatus(scope.row)"></el-switch>
           </template>
         </el-table-column>
         <el-table-column
@@ -212,7 +212,8 @@ export default {
     saveOrUpdateUser(user) {
       // console.log(user)
       if (!user.id) {
-        console.log('add')
+        // console.log('add')
+        user.password = '123456'
         this.$store
           .dispatch('admin/saveUser', user)
           .then(res => {
@@ -324,8 +325,27 @@ export default {
         })
     },
     removeUser(user) {
-      console.log(user)
-      this.batchDelete([user.id])
+      this.selectList = [user.id]
+      this.batchDelete()
+    },
+    updateStatus(user) {
+      user.status = 1 - user.status
+      this.$store
+        .dispatch('admin/updateUser', user)
+        .then(res => {
+          Message({
+            type: 'success',
+            message: '修改用户状态成功',
+            duration: 1000
+          })
+        })
+        .catch(reason => {
+          Message({
+            type: 'error',
+            message: reason.message,
+            duration: 1000
+          })
+        })
     },
     queryHandle() {
       this.getUserInfo()
