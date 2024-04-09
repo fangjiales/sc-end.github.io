@@ -6,6 +6,12 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/zh-CN' // lang i18n
 
+// 全局注册 mavonEditor
+// import with ES6
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
+
 import App from './App'
 import store from './store'
 import router from './router'
@@ -28,6 +34,8 @@ if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
 
+// use Vue.use(mavonEditor)
+Vue.use(mavonEditor)
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明

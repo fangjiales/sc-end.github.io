@@ -21,7 +21,11 @@ module.exports = {
         "allowFirstLine": false
       }
     }],
+    "vue/html-end-tags": "off",
+    "vue/no-parsing-error": "off",
     "vue/valid-v-on": "off",
+    "vue/attribute-hyphenation": "off",
+    "vue/no-unused-components": "off",
     "vue/no-unused-vars": "off",
     "vue/attributes-order": "off",
     "vue/html-closing-bracket-newline": "off",
@@ -78,6 +82,7 @@ module.exports = {
       'capIsNew': false
     }],
     'new-parens': 2,
+    "no-prototype-builtins": "off",
     'no-array-constructor': 2,
     'no-caller': 2,
     'no-console': 'off',

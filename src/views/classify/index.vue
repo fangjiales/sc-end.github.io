@@ -1,5 +1,5 @@
 <template>
-  <div>classify</div>
+  <div class="classify">分类</div>
 </template>
 
 <script>
@@ -9,4 +9,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.classify {
+  padding: 10px;
+}
 </style>

@@ -181,7 +181,7 @@ export default {
     return {
       keyword: '',
       page: 1,
-      size: 5,
+      size: 10,
       showEditUserDialog: false,
       editUserDialogTitle: '',
       user: defaultUser(),
@@ -245,7 +245,7 @@ export default {
           .catch(reason => {
             Message({
               type: 'error',
-              message: reason.message,
+              message: '修改用户信息失败',
               duration: 1000
             })
           })
@@ -329,10 +329,10 @@ export default {
       this.batchDelete()
     },
     updateStatus(user) {
-      user.status = 1 - user.status
       this.$store
         .dispatch('admin/updateUser', user)
         .then(res => {
+          user.status = 1 - user.status
           Message({
             type: 'success',
             message: '修改用户状态成功',
@@ -342,7 +342,7 @@ export default {
         .catch(reason => {
           Message({
             type: 'error',
-            message: reason.message,
+            message: '修改用户状态失败',
             duration: 1000
           })
         })

@@ -50,7 +50,7 @@ service.interceptors.response.use(
       Message({
         message: res.code + ' ' + res.message || 'Error',
         type: 'error',
-        duration: 5 * 1000
+        duration: 1000
       })
       return Promise.reject(new Error(res.message || 'Error'))
     }
@@ -60,7 +60,7 @@ service.interceptors.response.use(
     Message({
       message: error.message,
       type: 'error',
-      duration: 5 * 1000
+      duration: 1000
     })
     return Promise.reject(error)
   }
