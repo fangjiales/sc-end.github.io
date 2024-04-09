@@ -285,6 +285,7 @@ export default {
           this.$store
             .dispatch('admin/batchDelete', this.selectList)
             .then(res => {
+              this.page = 1
               Message({
                 type: 'success',
                 message: '删除成功',

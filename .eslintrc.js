@@ -113,7 +113,7 @@ module.exports = {
     'no-irregular-whitespace': 2,
     'no-iterator': 2,
     'no-label-var': 2,
-    'no-labels': [2, {
+    'no-labels': [0, {
       'allowLoop': false,
       'allowSwitch': false
     }],
