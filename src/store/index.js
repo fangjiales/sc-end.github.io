@@ -6,6 +6,7 @@ import settings from './modules/settings'
 import user from './modules/user'
 import admin from './modules/admin'
 import label from './modules/label'
+import classify from './modules/classify'
 
 Vue.use(Vuex)
 
@@ -15,7 +16,8 @@ const store = new Vuex.Store({
     settings,
     user,
     admin,
-    label
+    label,
+    classify
   },
   getters
 })
