@@ -59,7 +59,7 @@ module.exports = {
     'curly': [2, 'multi-line'],
     'dot-location': [2, 'property'],
     'eol-last': 0,
-    'eqeqeq': ["error", "always", { "null": "ignore" }],
+    'eqeqeq': ["off", "always", { "null": "ignore" }],
     'generator-star-spacing': [2, {
       'before': true,
       'after': true
@@ -166,7 +166,7 @@ module.exports = {
     'no-useless-escape': 0,
     'no-whitespace-before-property': 2,
     'no-with': 2,
-    'one-var': [2, {
+    'one-var': [0, {
       'initialized': 'never'
     }],
     'operator-linebreak': [2, 'after', {
@@ -180,7 +180,7 @@ module.exports = {
       'avoidEscape': true,
       'allowTemplateLiterals': true
     }],
-    'semi': [2, 'never'],
+    'semi': [0, 'never'],
     'semi-spacing': [2, {
       'before': false,
       'after': true
