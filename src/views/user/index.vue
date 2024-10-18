@@ -11,16 +11,30 @@
         @clear="getUserInfo"
         class="user-keyword-input"
       ></el-input>
-      <el-button type="primary" class="query-key-btn" size="small" @click="queryHandle"
-        >查询</el-button
-      >
-      <el-button type="warning" class="reset-key-btn" size="small" @click="resetHandle"
-        >重置</el-button
-      >
+      <el-button
+        type="primary"
+        class="query-key-btn"
+        size="small"
+        @click="queryHandle"
+      >查询</el-button>
+      <el-button
+        type="warning"
+        class="reset-key-btn"
+        size="small"
+        @click="resetHandle"
+      >重置</el-button>
     </div>
     <div class="user-operator user-item">
-      <el-button type="success" size="small" @click="addUser">新增</el-button>
-      <el-button type="danger" size="small" @click="batchDelete">批量删除</el-button>
+      <el-button
+        type="success"
+        size="small"
+        @click="addUser"
+      >新增</el-button>
+      <el-button
+        type="danger"
+        size="small"
+        @click="batchDelete"
+      >批量删除</el-button>
     </div>
     <div class="user-list user-item">
       <el-table
@@ -30,8 +44,17 @@
         @select="tableSelectHandle"
         @select-all="tableAllSelectHandle"
       >
-        <el-table-column type="selection" width="50" align="center"></el-table-column>
-        <el-table-column type="index" label="序号" width="80" align="center" />
+        <el-table-column
+          type="selection"
+          width="50"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          type="index"
+          label="序号"
+          width="80"
+          align="center"
+        />
         <el-table-column
           prop="username"
           label="用户名"
@@ -39,7 +62,12 @@
           align="center"
           :show-overflow-tooltip="true"
         />
-        <el-table-column prop="avatar" label="头像" width="120" align="center">
+        <el-table-column
+          prop="avatar"
+          label="头像"
+          width="120"
+          align="center"
+        >
           <template slot-scope="scope">
             <!-- <img class="user-avatar" :src="scope.row.avatar" /> -->
             <el-image
@@ -50,14 +78,27 @@
             ></el-image>
           </template>
         </el-table-column>
-        <el-table-column prop="sex" label="性别" width="80" align="center">
+        <el-table-column
+          prop="sex"
+          label="性别"
+          width="80"
+          align="center"
+        >
           <template slot-scope="scope">
             <span style="margin-left: 10px">{{ scope.row.sex ? '女' : '男' }}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="status" label="状态" width="100" align="center">
+        <el-table-column
+          prop="status"
+          label="状态"
+          width="100"
+          align="center"
+        >
           <template slot-scope="scope">
-            <el-switch :value="!!scope.row.status" @change="updateStatus(scope.row)"></el-switch>
+            <el-switch
+              :value="!!scope.row.status"
+              @change="updateStatus(scope.row)"
+            ></el-switch>
           </template>
         </el-table-column>
         <el-table-column
@@ -87,10 +128,22 @@
           align="center"
           :show-overflow-tooltip="true"
         />
-        <el-table-column width="200" label="操作" align="center">
+        <el-table-column
+          width="200"
+          label="操作"
+          align="center"
+        >
           <template slot-scope="scope">
-            <el-button type="primary" size="small" @click="editUser(scope.row)">编辑</el-button>
-            <el-button type="danger" size="small" @click="removeUser(scope.row)">删除</el-button>
+            <el-button
+              type="primary"
+              size="small"
+              @click="editUser(scope.row)"
+            >编辑</el-button>
+            <el-button
+              type="danger"
+              size="small"
+              @click="removeUser(scope.row)"
+            >删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -112,11 +165,27 @@
         width="40%"
         :before-close="editUserDialogCloseHandle"
       >
-        <el-form :model="user" :rules="userRules" size="small" label-width="80px" ref="userForm">
-          <el-form-item label="用户名" prop="username">
-            <el-input type="text" v-model="user.username" placeholder="请输入您的用户名" />
+        <el-form
+          :model="user"
+          :rules="userRules"
+          size="small"
+          label-width="80px"
+          ref="userForm"
+        >
+          <el-form-item
+            label="用户名"
+            prop="username"
+          >
+            <el-input
+              type="text"
+              v-model="user.username"
+              placeholder="请输入您的用户名"
+            />
           </el-form-item>
-          <el-form-item label="头像" prop="avatar">
+          <el-form-item
+            label="头像"
+            prop="avatar"
+          >
             <el-upload
               class="avatar-uploader"
               action="http://127.0.0.1:9966/file/upload"
@@ -125,32 +194,84 @@
               :on-success="handleAvatarSuccess"
               :before-upload="beforeAvatarUpload"
             >
-              <img v-if="user.avatar" :src="user.avatar" class="avatar" />
-              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+              <img
+                v-if="user.avatar"
+                :src="user.avatar"
+                class="avatar"
+              />
+              <i
+                v-else
+                class="el-icon-plus avatar-uploader-icon"
+              ></i>
             </el-upload>
           </el-form-item>
-          <el-form-item label="性别" prop="sex">
-            <el-select v-model="user.sex" placeholder="请选择您的性别">
-              <el-option label="男" :value="0"></el-option>
-              <el-option label="女" :value="1"></el-option>
+          <el-form-item
+            label="性别"
+            prop="sex"
+          >
+            <el-select
+              v-model="user.sex"
+              placeholder="请选择您的性别"
+            >
+              <el-option
+                label="男"
+                :value="0"
+              ></el-option>
+              <el-option
+                label="女"
+                :value="1"
+              ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="状态" prop="status">
-            <el-switch :value="!!user.status" @change="triggerStatus(user.status)"></el-switch>
+          <el-form-item
+            label="状态"
+            prop="status"
+          >
+            <el-switch
+              :value="!!user.status"
+              @change="triggerStatus(user.status)"
+            ></el-switch>
           </el-form-item>
-          <el-form-item label="电话" prop="phone">
-            <el-input type="text" v-model="user.phone" placeholder="请输入您的电话" />
+          <el-form-item
+            label="电话"
+            prop="phone"
+          >
+            <el-input
+              type="text"
+              v-model="user.phone"
+              placeholder="请输入您的电话"
+            />
           </el-form-item>
-          <el-form-item label="邮箱" prop="email">
-            <el-input type="text" v-model="user.email" placeholder="请输入您的邮箱" />
+          <el-form-item
+            label="邮箱"
+            prop="email"
+          >
+            <el-input
+              type="text"
+              v-model="user.email"
+              placeholder="请输入您的邮箱"
+            />
           </el-form-item>
-          <el-form-item label="描述" prop="introduction">
-            <el-input type="textarea" v-model="user.introduction" placeholder="请输入您的描述" />
+          <el-form-item
+            label="描述"
+            prop="introduction"
+          >
+            <el-input
+              type="textarea"
+              v-model="user.introduction"
+              placeholder="请输入您的描述"
+            />
           </el-form-item>
         </el-form>
-        <span slot="footer" class="dialog-footer">
+        <span
+          slot="footer"
+          class="dialog-footer"
+        >
           <el-button @click="editUserDialogCloseHandle">取消</el-button>
-          <el-button type="primary" @click="confirmSubmit">确认</el-button>
+          <el-button
+            type="primary"
+            @click="confirmSubmit"
+          >确认</el-button>
         </span>
       </el-dialog>
     </div>
@@ -197,7 +318,7 @@ export default {
           console.log(res)
           Message({
             type: 'success',
-            message: 'retrieve user list success',
+            message: 'retrieve user list success ',
             duration: 1000
           })
         })
