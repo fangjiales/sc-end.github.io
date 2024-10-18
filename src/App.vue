@@ -8,4 +8,5 @@
 export default {
   name: 'App'
 }
+console.log(3)
 </script>
